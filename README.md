@@ -3,8 +3,8 @@ Galería Visual Dragon Ball 🐉✨
 ¡Hola! Este es mi proyecto de galería web donde muestro personajes de Dragon Ball. Lo hice practicando CSS y HTML, tratando de que se vea bonito y con algunos efectos que me parecieron lindos 💫
 
 Ver el proyecto funcionando:
-https://tu-usuario.github.io/galeria-visual-keryly/
 
+https://dayalopez231007-ship-it.github.io/galeria-visual--kerly_dayanna_lopez-_transferencia-/
 
 CÓMO VER EL PROYECTO EN TU COMPUTADORA 💻
 
@@ -30,8 +30,7 @@ cd Desktop
 
 ⬇️ Paso 3: Descarga el proyecto con este comando
 
-git clone https://github.com/tu-usuario/galeria-visual-keryly.git
-
+git clone https://github.com/dayalopez231007-ship-it/galeria-visual--kerly_dayanna_lopez-_transferencia-.git
 Esto va a crear una carpeta con todo el proyecto dentro.
 
 
@@ -78,9 +77,8 @@ Para la sección promocional usé tonos azules como el Kamehameha. Le puse un á
 
 📸 Las imágenes
 
-Por qué usé WebP
 
-Todas las imágenes están en formato .webp porque pesan menos que los PNG o JPG normales. Básicamente la página carga más rápido y se ven igual de bien. Ganas por todos lados 🎯
+Todas las imágenes están en formato .webp porque pesan menos que los PNG o JPG normales. Básicamente la página carga más rápido y se ven igual de bien.🎯
 
 Cómo las acomodé
 
@@ -134,19 +132,9 @@ galeria-visual-keryly/
 
 👩‍💻 SOBRE MÍ
 
-Soy Keryly Dayanna Lopez Silva y este proyecto lo hice practicando desarrollo web 💻 Escogí Dragon Ball porque me gusta la serie y porque así era más divertido que hacer una galería de fotos random. Además, los colores y efectos me daban mucha libertad creativa para experimentar 🎨
+Soy Kerly Dayanna Lopez Silva y este proyecto lo hice practicando desarrollo web.
 
 Todavía estoy aprendiendo así que si ves algo que se puede mejorar o encuentras algún error, avísame sin pena. Cualquier comentario me sirve un montón 💬
 
 
-📝 NOTA
-
-Las imágenes de Dragon Ball no son mías, son de Akira Toriyama y Toei Animation. Solo las uso aquí para practicar y aprender 📚
-
-
 💌 Si te sirvió o te gustó el diseño, puedes darle una estrella al repo ⭐ o compartirlo con alguien que esté aprendiendo también.
-
-Gracias por revisar mi proyecto! Espero que te guste tanto como a mí me gustó hacerlo 🌸
-
-
-Hecho con mucho ☕, música de fondo, y varias pausas para buscar cómo hacer cosas en Google 😊

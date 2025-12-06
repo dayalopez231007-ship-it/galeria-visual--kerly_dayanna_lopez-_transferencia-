@@ -114,7 +114,7 @@ Solo HTML y CSS, nada más. No usé Bootstrap ni librerías fancy, todo escrito 
 
 📂 CÓMO ESTÁ ORGANIZADO
 
-galeria-visual-keryly/
+galeria-visual-kerly_dayanna_lopez_silva
 │
 ├── index.html          ← Aquí está la estructura de la página
 ├── style.css           ← Todos los estilos y comentarios

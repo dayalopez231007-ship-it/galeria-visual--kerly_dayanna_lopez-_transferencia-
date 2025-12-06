@@ -1,0 +1,355 @@
+/* ============================================================================
+    GALERÍA VISUAL - DRAGON BALL (VERSIÓN SIMPLIFICADA)
+    Autor: Keryly Dayanna Lopez Silva
+   ============================================================================ */
+
+/* ============================================================================
+    1. RESET BÁSICO
+   ============================================================================ */
+
+/* Reset para todos los elementos */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================================================
+    2. CONFIGURACIÓN DEL BODY
+   ============================================================================ */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    
+    /* Fondo con imagen y overlay oscuro */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+        url(./recursos/thumb-1920-640445.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ============================================================================
+    3. HEADER - Cabecera más compacta
+   ============================================================================ */
+
+.site-header {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 20px; /* Reducido de 60px a 30px */
+    text-align: center;
+    color: white;
+    
+    /* Gradiente animado naranja-dorado */
+    background: linear-gradient(135deg, #ff8c00, #fbbf24, #ff8c00, #fbbf24, #ff8c00);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Overlay oscuro para mejor contraste */
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Contenido del header */
+.header-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Título principal con brillo */
+.site-header h1 {
+    font-size: 2.5rem; /* Tamaño fijo más pequeño */
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    
+    /* Efecto de brillo dorado */
+    text-shadow: 
+        0 0 10px rgba(251, 191, 36, 0.8),
+        0 0 20px rgba(251, 191, 36, 0.6),
+        0 0 30px rgba(251, 191, 36, 0.4),
+        2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+    animation: textGlow 3s ease-in-out infinite;
+}
+
+/* Subtítulo */
+.lead {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================================================
+    4. BANNER PROMOCIONAL
+   ============================================================================ */
+
+.promo {
+    position: relative;
+    margin: 40px auto;
+    padding: 30px 20px;
+    max-width: 1000px;
+    border-radius: 20px;
+    overflow: hidden;
+    
+    /* Gradiente azul (Kamehameha) */
+    background: linear-gradient(45deg, #1e40af, #3b82f6, #60a5fa);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover: eleva el banner */
+.promo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255, 187, 0, 0.5);
+}
+
+/* Texto del banner */
+.promo-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+}
+
+.promo-text h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.promo-text p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* ============================================================================
+    5. GALERÍA - Grid de tarjetas
+   ============================================================================ */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ============================================================================
+    6. TARJETAS (CARDS)
+   ============================================================================ */
+
+.item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Efecto hover: eleva la tarjeta */
+.item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Efecto hover: zoom en la imagen */
+.item:hover .thumb {
+    transform: scale(1.1);
+}
+
+/* ============================================================================
+    7. MINIATURAS (IMÁGENES)
+   ============================================================================ */
+
+.thumb {
+    height: 300px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f3f4f6;
+    transition: transform 0.5s ease;
+}
+
+/* Overlay oscuro al hacer hover */
+.thumb::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.item:hover .thumb::after {
+    opacity: 1;
+}
+
+/* ============================================================================
+    8. TÍTULOS Y DESCRIPCIONES
+   ============================================================================ */
+
+/* Título de la tarjeta */
+.title {
+    padding: 16px 16px 8px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1f2937;
+    transition: color 0.2s ease;
+}
+
+/* Cambia color del título al hacer hover */
+.item:hover .title {
+    color: #ff8c00;
+}
+
+/* Descripción */
+.desc {
+    padding: 0 16px 16px;
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* ============================================================================
+    9. FOOTER
+   ============================================================================ */
+
+.site-footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    background: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    border-top: 3px solid #ff8c00;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* ============================================================================
+    10. ANIMACIONES
+   ============================================================================ */
+
+/* Animación del gradiente del header */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Animación de brillo del título */
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 
+            0 0 10px rgba(251, 191, 36, 0.8),
+            0 0 20px rgba(251, 191, 36, 0.6),
+            0 0 30px rgba(251, 191, 36, 0.4),
+            2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        text-shadow: 
+            0 0 20px rgba(251, 191, 36, 1),
+            0 0 30px rgba(251, 191, 36, 0.8),
+            0 0 40px rgba(251, 191, 36, 0.6),
+            2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Animación de aparición de tarjetas */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplica animación a las tarjetas */
+.item {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.item:nth-child(1) { animation-delay: 0.1s; }
+.item:nth-child(2) { animation-delay: 0.2s; }
+.item:nth-child(3) { animation-delay: 0.3s; }
+.item:nth-child(4) { animation-delay: 0.4s; }
+.item:nth-child(5) { animation-delay: 0.5s; }
+.item:nth-child(6) { animation-delay: 0.6s; }
+
+/* ============================================================================
+    11. RESPONSIVE - Adaptación a móviles
+   ============================================================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+    }
+    
+    .thumb {
+        height: 240px;
+    }
+    
+    .site-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        padding: 24px 16px;
+    }
+    
+    .thumb {
+        height: 280px;
+    }
+    
+    .promo {
+        margin: 24px 16px;
+    }
+    
+    .site-header h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* ============================================================================
+    FIN DEL CSS
+   ============================================================================ */

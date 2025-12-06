@@ -1,125 +1,169 @@
 /* ============================================================================
-    GALERÍA VISUAL - DRAGON BALL (VERSIÓN SIMPLIFICADA)
+    GALERÍA VISUAL - DRAGON BALL
     Autor: Keryly Dayanna Lopez Silva
+    Descripción: Galería responsive de personajes con efectos hover y animaciones
    ============================================================================ */
+
 
 /* ============================================================================
-    1. RESET BÁSICO
+    RESET BÁSICO
    ============================================================================ */
 
-/* Reset para todos los elementos */
+/* 
+    Esto resetea los estilos por defecto del navegador
+    - box-sizing: border-box hace que el padding y border se incluyan en el ancho total
+    - margin y padding en 0 para empezar desde cero sin espacios extraños
+*/
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+
 /* ============================================================================
-    2. CONFIGURACIÓN DEL BODY
+    CONFIGURACIÓN DEL BODY (FONDO DE LA PÁGINA)
    ============================================================================ */
 
 body {
+    /* Fuente y espaciado del texto */
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #1f2937;
+    color: #1f2937; /* Gris oscuro para el texto */
     
-    /* Fondo con imagen y overlay oscuro */
+    /* 
+        Fondo con dos capas:
+        1. Linear-gradient: capa oscura semitransparente para que el texto se lea mejor
+        2. Imagen de fondo de Dragon Ball
+    */
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
         url(./recursos/thumb-1920-640445.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    
+    /* Configuración de la imagen de fondo */
+    background-repeat: no-repeat;     /* No repetir la imagen */
+    background-size: cover;           /* Que cubra toda la pantalla */
+    background-position: center;      /* Centrada */
+    background-attachment: fixed;     /* Fija al hacer scroll (efecto parallax) */
 }
 
+
 /* ============================================================================
-    3. HEADER - Cabecera más compacta
+    HEADER (ENCABEZADO)
    ============================================================================ */
 
 .site-header {
-    position: relative;
-    overflow: hidden;
-    padding: 30px 20px; /* Reducido de 60px a 30px */
-    text-align: center;
-    color: white;
+    position: relative;      /* Para que los elementos internos se posicionen respecto a este */
+    overflow: hidden;        /* Esconde cualquier contenido que se salga */
+    padding: 30px 20px;      /* Espacio interno: 30px arriba/abajo, 20px izquierda/derecha */
+    text-align: center;      /* Texto centrado */
+    color: white;            /* Color del texto */
     
-    /* Gradiente animado naranja-dorado */
+    /* 
+        Gradiente naranja-dorado que simula el aura de Super Saiyan
+        135deg = ángulo diagonal
+        Los colores se repiten para crear un patrón más largo
+    */
     background: linear-gradient(135deg, #ff8c00, #fbbf24, #ff8c00, #fbbf24, #ff8c00);
+    
+    /* 
+        Esto hace que el gradiente sea más grande que el contenedor
+        para poder animarlo y crear el efecto de movimiento
+    */
     background-size: 400% 400%;
+    
+    /* Aplica la animación "gradientShift" que dura 8 segundos y se repite infinitamente */
     animation: gradientShift 8s ease infinite;
+    
+    /* Sombra debajo del header para separarlo del contenido */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Overlay oscuro para mejor contraste */
+/* 
+    Capa oscura semitransparente sobre el header
+    para mejorar el contraste del texto blanco
+*/
 .header-overlay {
-    position: absolute;
+    position: absolute;      /* Se posiciona sobre el header */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    background: rgba(0, 0, 0, 0.2);  /* Negro con 20% de opacidad */
+    z-index: 1;              /* Detrás del texto */
 }
 
-/* Contenido del header */
+/* Contenedor del texto del header */
 .header-content {
-    position: relative;
-    z-index: 2;
+    position: relative;      /* Para estar sobre el overlay */
+    z-index: 2;              /* Por encima del overlay */
 }
 
-/* Título principal con brillo */
+/* Título principal del header (h1) */
 .site-header h1 {
-    font-size: 2.5rem; /* Tamaño fijo más pequeño */
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
+    font-size: 2.5rem;       /* Tamaño grande (40px aprox) */
+    font-weight: 900;        /* Muy grueso (negrita extrema) */
+    letter-spacing: 2px;     /* Espacio entre letras */
+    text-transform: uppercase; /* Todo en mayúsculas */
+    margin-bottom: 10px;     /* Espacio debajo del título */
     
-    /* Efecto de brillo dorado */
+    /* 
+        Sombras múltiples para crear efecto de brillo dorado (aura Super Saiyan)
+        Las primeras 3 líneas son el brillo
+        La última es la sombra de legibilidad
+    */
     text-shadow: 
         0 0 10px rgba(251, 191, 36, 0.8),
         0 0 20px rgba(251, 191, 36, 0.6),
         0 0 30px rgba(251, 191, 36, 0.4),
         2px 2px 4px rgba(0, 0, 0, 0.5);
     
+    /* Animación de pulso del brillo */
     animation: textGlow 3s ease-in-out infinite;
 }
 
-/* Subtítulo */
+/* Subtítulo del header (clase .lead) */
 .lead {
-    font-size: 1.1rem;
-    font-weight: 300;
-    opacity: 0.95;
-    max-width: 600px;
-    margin: 0 auto;
+    font-size: 1.1rem;       /* Tamaño mediano */
+    font-weight: 300;        /* Delgado */
+    opacity: 0.95;           /* Ligeramente transparente */
+    max-width: 600px;        /* Ancho máximo para que no sea muy largo */
+    margin: 0 auto;          /* Centrado horizontalmente */
 }
 
+
 /* ============================================================================
-    4. BANNER PROMOCIONAL
+    BANNER PROMOCIONAL
    ============================================================================ */
 
 .promo {
     position: relative;
-    margin: 40px auto;
-    padding: 30px 20px;
-    max-width: 1000px;
-    border-radius: 20px;
-    overflow: hidden;
+    margin: 40px auto;       /* 40px arriba/abajo, centrado horizontalmente */
+    padding: 30px 20px;      /* Espacio interno */
+    max-width: 1000px;       /* Ancho máximo */
+    border-radius: 20px;     /* Esquinas redondeadas */
+    overflow: hidden;        /* Esconde contenido que se salga */
     
-    /* Gradiente azul (Kamehameha) */
+    /* Gradiente azul diagonal inspirado en el Kamehameha */
     background: linear-gradient(45deg, #1e40af, #3b82f6, #60a5fa);
+    
+    /* Sombra para dar profundidad */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    
+    /* Transición suave cuando cambia la propiedad transform */
     transition: transform 0.3s ease;
 }
 
-/* Efecto hover: eleva el banner */
+/* 
+    Efecto al pasar el mouse sobre el banner:
+    Se eleva 5px hacia arriba y cambia la sombra a dorada
+*/
 .promo:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(255, 187, 0, 0.5);
+    transform: translateY(-5px);              /* Mueve hacia arriba */
+    box-shadow: 0 0 20px rgba(255, 187, 0, 0.5); /* Brillo dorado */
 }
 
-/* Texto del banner */
+/* Contenedor del texto del banner */
 .promo-text {
     position: relative;
     z-index: 2;
@@ -127,150 +171,192 @@ body {
     text-align: center;
 }
 
+/* Título del banner (h2) */
 .promo-text h2 {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 700;        /* Negrita */
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para legibilidad */
 }
 
+/* Párrafo del banner */
 .promo-text p {
     font-size: 1.1rem;
-    opacity: 0.9;
+    opacity: 0.9;            /* Ligeramente transparente */
 }
 
+
 /* ============================================================================
-    5. GALERÍA - Grid de tarjetas
+    GALERÍA (GRID DE TARJETAS)
    ============================================================================ */
 
 .gallery {
-    display: grid;
+    display: grid;           /* Usamos CSS Grid para organizar las tarjetas */
+    
+    /* 
+        Crea columnas automáticas:
+        - repeat(auto-fit, ...) crea tantas columnas como quepan
+        - minmax(250px, 1fr) cada columna mínimo 250px, máximo 1 fracción del espacio
+        Resultado: se adapta automáticamente al tamaño de pantalla
+    */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 24px;
-    padding: 40px 20px;
-    max-width: 1400px;
-    margin: 0 auto;
+    
+    gap: 24px;               /* Espacio entre tarjetas */
+    padding: 40px 20px;      /* Espacio interno del contenedor */
+    max-width: 1400px;       /* Ancho máximo de la galería */
+    margin: 0 auto;          /* Centrada horizontalmente */
 }
 
+
 /* ============================================================================
-    6. TARJETAS (CARDS)
+    TARJETAS (CADA PERSONAJE)
    ============================================================================ */
 
 .item {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: white;       /* Fondo blanco */
+    border-radius: 12px;     /* Esquinas redondeadas */
+    overflow: hidden;        /* Esconde contenido que se salga (para el efecto zoom) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    
+    /* Transición suave para transform y box-shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    position: relative;
+    
+    cursor: pointer;         /* Cambia el cursor a manita */
+    position: relative;      /* Para posicionar elementos internos */
 }
 
-/* Efecto hover: eleva la tarjeta */
+/* 
+    Efecto al pasar el mouse sobre la tarjeta:
+    - Se eleva 10px
+    - Se agranda un poquito (scale 1.02 = 2% más grande)
+    - La sombra se hace más grande y oscura
+*/
 .item:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Efecto hover: zoom en la imagen */
+/* Efecto hover en la imagen: hace zoom */
 .item:hover .thumb {
-    transform: scale(1.1);
+    transform: scale(1.1);   /* Agranda la imagen 10% */
 }
 
+
 /* ============================================================================
-    7. MINIATURAS (IMÁGENES)
+    MINIATURAS (IMÁGENES DE LOS PERSONAJES)
    ============================================================================ */
 
 .thumb {
-    height: 300px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #f3f4f6;
+    height: 300px;           /* Alto fijo */
+    
+    /* Configuración de la imagen de fondo */
+    background-size: contain;     /* La imagen completa visible sin recortes */
+    background-position: center;  /* Centrada */
+    background-repeat: no-repeat; /* No se repite */
+    background-color: #f3f4f6;    /* Fondo gris claro si la imagen no carga */
+    
+    /* Transición lenta (0.5s) para el efecto zoom */
     transition: transform 0.5s ease;
 }
 
-/* Overlay oscuro al hacer hover */
+/* 
+    Overlay oscuro que aparece al hacer hover
+    ::after crea un elemento virtual después del .thumb
+*/
 .thumb::after {
-    content: '';
-    position: absolute;
+    content: '';             /* Necesario para que aparezca */
+    position: absolute;      /* Posicionado sobre la imagen */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    
+    /* Gradiente de transparente arriba a negro abajo */
     background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    
+    opacity: 0;              /* Invisible por defecto */
+    transition: opacity 0.3s ease; /* Transición suave de opacidad */
 }
 
+/* Al hacer hover en la tarjeta, el overlay se hace visible */
 .item:hover .thumb::after {
     opacity: 1;
 }
 
+
 /* ============================================================================
-    8. TÍTULOS Y DESCRIPCIONES
+    TÍTULOS Y DESCRIPCIONES
    ============================================================================ */
 
-/* Título de la tarjeta */
+/* Título de cada tarjeta (h3) */
 .title {
-    padding: 16px 16px 8px;
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #1f2937;
-    transition: color 0.2s ease;
+    padding: 16px 16px 8px;  /* Espacio interno */
+    font-size: 1.125rem;     /* Tamaño mediano (18px) */
+    font-weight: 700;        /* Negrita */
+    color: #1f2937;          /* Gris oscuro */
+    transition: color 0.2s ease; /* Transición rápida del color */
 }
 
-/* Cambia color del título al hacer hover */
+/* Al hacer hover en la tarjeta, el título se vuelve naranja */
 .item:hover .title {
     color: #ff8c00;
 }
 
-/* Descripción */
+/* Descripción de cada tarjeta (párrafo) */
 .desc {
-    padding: 0 16px 16px;
-    font-size: 0.875rem;
-    color: #6b7280;
-    line-height: 1.5;
+    padding: 0 16px 16px;    /* Espacio interno */
+    font-size: 0.875rem;     /* Tamaño pequeño (14px) */
+    color: #6b7280;          /* Gris medio */
+    line-height: 1.5;        /* Espaciado entre líneas */
 }
 
+
 /* ============================================================================
-    9. FOOTER
+    FOOTER (PIE DE PÁGINA)
    ============================================================================ */
 
 .site-footer {
     text-align: center;
     padding: 40px 20px;
-    margin-top: 60px;
-    background: rgba(0, 0, 0, 0.8);
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.875rem;
-    border-top: 3px solid #ff8c00;
+    margin-top: 60px;        /* Separación del contenido de arriba */
+    background: rgba(0, 0, 0, 0.8); /* Negro semi-transparente */
+    color: rgba(255, 255, 255, 0.8); /* Blanco semi-transparente */
+    font-size: 0.875rem;     /* Texto pequeño */
+    border-top: 3px solid #ff8c00; /* Línea naranja arriba */
 }
 
 .site-footer p {
     margin: 0;
 }
 
+
 /* ============================================================================
-    10. ANIMACIONES
+    ANIMACIONES
    ============================================================================ */
 
-/* Animación del gradiente del header */
+/* 
+    Animación del gradiente del header
+    Mueve la posición del fondo para crear efecto de movimiento
+*/
 @keyframes gradientShift {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 50%;    /* Posición inicial */
     }
     50% {
-        background-position: 100% 50%;
+        background-position: 100% 50%;  /* Se mueve a la derecha */
     }
     100% {
-        background-position: 0% 50%;
+        background-position: 0% 50%;    /* Vuelve al inicio */
     }
 }
 
-/* Animación de brillo del título */
+/* 
+    Animación del brillo del título
+    Hace que las sombras brillen más y menos (efecto de pulso)
+*/
 @keyframes textGlow {
     0%, 100% {
+        /* Estado normal */
         text-shadow: 
             0 0 10px rgba(251, 191, 36, 0.8),
             0 0 20px rgba(251, 191, 36, 0.6),
@@ -278,6 +364,7 @@ body {
             2px 2px 4px rgba(0, 0, 0, 0.5);
     }
     50% {
+        /* Estado brillante (más intenso) */
         text-shadow: 
             0 0 20px rgba(251, 191, 36, 1),
             0 0 30px rgba(251, 191, 36, 0.8),
@@ -286,23 +373,36 @@ body {
     }
 }
 
-/* Animación de aparición de tarjetas */
+/* 
+    Animación de aparición de tarjetas
+    Las hace aparecer desde abajo con un fade
+*/
 @keyframes fadeInUp {
     from {
-        opacity: 0;
-        transform: translateY(30px);
+        opacity: 0;              /* Invisible */
+        transform: translateY(30px); /* 30px abajo */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1;              /* Visible */
+        transform: translateY(0);    /* En su posición normal */
     }
 }
 
-/* Aplica animación a las tarjetas */
+/* 
+    Aplica la animación a todas las tarjetas
+    - 0.6s de duración
+    - ease-out: empieza rápido y termina lento
+    - backwards: mantiene el estilo del from antes de empezar
+*/
 .item {
     animation: fadeInUp 0.6s ease-out backwards;
 }
 
+/* 
+    Delay escalonado para cada tarjeta
+    Cada una aparece 0.1s después de la anterior
+    Esto crea un efecto de "cascada"
+*/
 .item:nth-child(1) { animation-delay: 0.1s; }
 .item:nth-child(2) { animation-delay: 0.2s; }
 .item:nth-child(3) { animation-delay: 0.3s; }
@@ -310,46 +410,27 @@ body {
 .item:nth-child(5) { animation-delay: 0.5s; }
 .item:nth-child(6) { animation-delay: 0.6s; }
 
+
 /* ============================================================================
-    11. RESPONSIVE - Adaptación a móviles
+    RESPONSIVE (ADAPTACIÓN A DIFERENTES PANTALLAS)
    ============================================================================ */
 
-/* Tablets */
+/* 
+TABLETS (pantallas de 768px o menos)
+Ejemplo: iPad, tablets Android
+*/
 @media (max-width: 768px) {
     .gallery {
+        /* Columnas un poco más pequeñas */
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
+        gap: 16px;           /* Menos espacio entre tarjetas */
     }
     
     .thumb {
-        height: 240px;
+        height: 240px;       /* Imágenes más bajitas */
     }
     
     .site-header h1 {
-        font-size: 2rem;
+        font-size: 2rem;     /* Título más pequeño */
     }
 }
-
-/* Móviles */
-@media (max-width: 480px) {
-    .gallery {
-        grid-template-columns: 1fr;
-        padding: 24px 16px;
-    }
-    
-    .thumb {
-        height: 280px;
-    }
-    
-    .promo {
-        margin: 24px 16px;
-    }
-    
-    .site-header h1 {
-        font-size: 1.75rem;
-    }
-}
-
-/* ============================================================================
-    FIN DEL CSS
-   ============================================================================ */
